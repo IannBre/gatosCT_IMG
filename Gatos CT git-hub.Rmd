@@ -1,0 +1,70 @@
+---
+title: "Gatos CT paper: flujo ordenado y reproducible"
+author: "Barbe I"
+date: "2023-08-31"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#Empezemos con los paquetes
+```{r control de versiones de paquetes}
+old.packages()
+```
+
+```{r paquetes que voy a necesitar}
+## List of packages required:
+packages <- c("dplyr", "tidyr", "glmmTMB", "emmeans", "performance",
+              "MASS", "DHARMa", "arm", "ggplot2", "ggdist",
+              "lattice", "ggbeeswarm", "gridExtra", "mgcv", 
+"reshape2", "ggmosaic", "cdata", "car", "stringr","reshape",
+ "parameters", "RColorBrewer","grDevices","geoR","tidyverse",
+"readxl","lme4","ggeffects","writexl","magrittr","MuMIn",
+"pscl","cowplot","patchwork","dplyr")
+
+## Load or install & load all these:
+inst <- packages[1:35] %in% installed.packages()
+if(length(packages[!inst]) > 0) install.packages(packages[!inst])
+
+# Load packages into session
+lapply(packages, require, character.only = TRUE)
+
+```
+
+#Script de trabajo
+```{r limpiar global enviroment}
+rm(list = ls()) # OPTIONAL
+```
+#Dataframe
+```{r base de datos}
+## Cargado de tablas
+
+gatos_CT <- read.csv("E:/Análisis_R/IMG/data/eventosgatosB18-21.csv", 
+                     header=T,sep=";",
+                     stringsAsFactors=FALSE)%>%
+  mutate(etapa=factor(etapa)) %>%
+  mutate(eventos=as.numeric(eventos)) %>% 
+  mutate(zona=factor(zona)) %>% 
+  mutate(tasa=eventos/esfuerzo)
+
+
+##Controlar la estructura de los datos
+str(gatos_CT)
+summary(gatos_CT)
+```
+
+#Definir las variables
+```{r definir las variables}
+#Variable respuesta ----
+var_resp <- "tasa"
+#Predictores fijos: variable predictora cuantitativa o categoricas ----
+#Variable categorica
+var_fac1 <- "etapa"
+var_fac2 <- "zona"
+#Predictores aleatorios: dependen de la estructura de los datos ----
+
+
+```
