@@ -1,0 +1,56 @@
+Column1;Station;Camera;Species;utm_y;utm_x;DateTimeOriginal;Date;Time;delta.time.secs;delta.time.mins;delta.time.hours;delta.time.days;Directory;FileName;metadata_SP;metadata_Observador_gato;n_images;metadata_Grupo;metadata_ID_gato;metadata_Gato;HierarchicalSubject
+1;E02;E02;Gato;6216150;384938;;25/08/2021;10:00:45 a. m.;;;;;;08250001.JPG;Gato;Gloria;3;1;Casa de bombas_Gato 1;Negro;SP|Gato, Observador_gato|Gloria
+2;E16;E16;Gato;6216853;384271;;21/08/2021;12:06:19 p. m.;;;;;;08210038.JPG;Gato;Gloria;3;1;Basural viejo entrada y costa_Gato 1;Negro;SP|Gato, Observador_gato|Gloria
+3;E16;E16;Gato;6216853;384271;;24/08/2021;10:28:08 p. m.;;;;;;08240053.JPG;Gato;Gloria;3;1;Basural viejo entrada y costa_;Negro;SP|Gato, Observador_gato|Gloria
+4;E16;2019;Gato;6216853;384271;;28/08/2021;07:14:17 p. m.;;;;;;08280089.JPG;Gato;Gloria;3;1;Basural viejo entrada y costa_;No se ve;SP|Gato, Observador_gato|Gloria
+5;E06;E06;Gato;6216083;384746;;16/09/2021;06:40:42 a. m.;;;;;;09150150.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+6;E06;E06;Gato;6216083;384746;;16/09/2021;06:40:42 a. m.;;;;;;09150150.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+7;E06;E06;Gato;6216083;384746;;16/09/2021;07:00:05 a. m.;;;;;;09150151.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+8;E06;E06;Gato;6216083;384746;;16/09/2021;07:00:05 a. m.;;;;;;09150151.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+9;E06;E06;Gato;6216083;384746;;16/09/2021;07:49:03 a. m.;;;;;;09150152.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+10;E06;E06;Gato;6216083;384746;;16/09/2021;07:49:03 a. m.;;;;;;09150152.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+11;E06;E06;Gato;6216083;384746;;16/09/2021;06:01:08 p. m.;;;;;;09160155.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+12;E06;E06;Gato;6216083;384746;;16/09/2021;06:01:08 p. m.;;;;;;09160155.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+13;E06;E06;Gato;6216083;384746;;16/09/2021;06:37:51 p. m.;;;;;;09160156.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+14;E06;E06;Gato;6216083;384746;;16/09/2021;06:37:51 p. m.;;;;;;09160156.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+15;E06;E06;Gato;6216083;384746;;15/09/2021;07:14:19 a. m.;;;;;;09150125.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+16;E06;E06;Gato;6216083;384746;;15/09/2021;07:14:19 a. m.;;;;;;09150125.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+17;E06;E06;Gato;6216083;384746;;15/09/2021;09:03:49 a. m.;;;;;;09150127.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+18;E06;E06;Gato;6216083;384746;;15/09/2021;09:03:49 a. m.;;;;;;09150127.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+19;E06;E06;Gato;6216083;384746;;15/09/2021;09:50:27 a. m.;;;;;;09150128.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+20;E06;E06;Gato;6216083;384746;;15/09/2021;09:50:27 a. m.;;;;;;09150128.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+21;E06;E06;Gato;6216083;384746;;15/09/2021;10:02:57 a. m.;;;;;;09150119.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+22;E06;E06;Gato;6216083;384746;;15/09/2021;10:02:57 a. m.;;;;;;09150119.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+23;E06;E06;Gato;6216083;384746;;15/09/2021;10:07:01 a. m.;;;;;;09150131.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+24;E06;E06;Gato;6216083;384746;;15/09/2021;10:07:01 a. m.;;;;;;09150131.AVI;Gato;Gloria;3;1;Basural_Gato 2 y 4;Amarillo peludo + Marmolado negro peludo;SP|Gato, Observador_gato|Gloria
+25;E06;E06;Gato;6216083;384746;;15/09/2021;10:09:00 a. m.;;;;;;09150312.AVI;Gato;Gloria;3;1;Basural_Gato 2;Amarillo peludo;SP|Gato, Observador_gato|Gloria
+26;E06;E06;Gato;6216083;384746;;15/09/2021;10:11:23 a. m.;;;;;;09150134.AVI;Gato;Gloria;3;1;Basural_;No se ve;SP|Gato, Observador_gato|Gloria
+27;E06;E06;Gato;6216083;384746;;15/09/2021;10:13:41 a. m.;;;;;;09150136.AVI;Gato;Gloria;3;1;Basural_Gato 6;Negro;SP|Gato, Observador_gato|Gloria
+28;E06;E06;Gato;6216083;384746;;15/09/2021;02:11:40 p. m.;;;;;;09150140.AVI;Gato;Gloria;3;1;Basural_Gato 4 + Gato 8;Marmolado negro peludo + Negro;SP|Gato, Observador_gato|Gloria
+29;E06;E06;Gato;6216083;384746;;15/09/2021;02:11:40 p. m.;;;;;;09150140.AVI;Gato;Gloria;3;1;Basural_Gato 4 + Gato 8;Marmolado negro peludo + Negro;SP|Gato, Observador_gato|Gloria
+30;E06;E06;Gato;6216083;384746;;15/09/2021;06:39:57 p. m.;;;;;;09150141.AVI;Gato;Gloria;3;1;Basural_Gato 2;Amarillo peludo;SP|Gato, Observador_gato|Gloria
+31;E06;E06;Gato;6216083;384746;;15/09/2021;06:42:03 p. m.;;;;;;09150142.AVI;Gato;Gloria;3;1;Basural_Gato 1;Negro Peludo;SP|Gato, Observador_gato|Gloria
+32;E06;E06;Gato;6216083;384746;;15/09/2021;06:45:16 p. m.;;;;;;09150145.AVI;Gato;Gloria;3;1;Basural_Gato 6;Negro;SP|Gato, Observador_gato|Gloria
+33;E06;E06;Gato;6216083;384746;;15/09/2021;06:47:48 p. m.;;;;;;09150146.AVI;Gato;Gloria;3;1;Basural_Gato 2;Amarillo Peludo;SP|Gato, Observador_gato|Gloria
+34;E06;E06;Gato;6216083;384746;;15/09/2021;06:49:18 p. m.;;;;;;09150148.AVI;Gato;Gloria;3;1;Basural_Gato 10;Tricolor;SP|Gato, Observador_gato|Gloria
+35;E06;E06;Gato;6216083;384746;;14/09/2021;04:38:39 p. m.;;;;;;09140105.AVI;Gato;Gloria;3;1;Basural_Gato 10;Tricolor;SP|Gato, Observador_gato|Gloria
+36;E06;E06;Gato;6216083;384746;;14/09/2021;04:40:55 p. m.;;;;;;09140108.AVI;Gato;Gloria;3;1;Basural_Gato 10;Tricolor;SP|Gato, Observador_gato|Gloria
+37;E06;E06;Gato;6216083;384746;;14/09/2021;04:42:57 p. m.;;;;;;09140110.AVI;Gato;Gloria;3;1;Basural_Gato 2;Amarillo Peludo;SP|Gato, Observador_gato|Gloria
+38;E06;E06;Gato;6216083;384746;;14/09/2021;04:45:06 p. m.;;;;;;09140113.AVI;Gato;Gloria;3;1;Basural_Gato 10;Negro Peludo;SP|Gato, Observador_gato|Gloria
+39;E06;E06;Gato;6216083;384746;;14/09/2021;04:47:47 p. m.;;;;;;09140117.AVI;Gato;Gloria;3;1;Basural_Gato 10;Negro Peludo;SP|Gato, Observador_gato|Gloria
+40;E06;E06;Gato;6216083;384746;;14/09/2021;04:49:55 p. m.;;;;;;09140119.AVI;Gato;Gloria;3;1;Basural_Gato 10;Negro Peludo;SP|Gato, Observador_gato|Gloria
+41;E06;E06;Gato;6216083;384746;;14/09/2021;05:18:20 p. m.;;;;;;09140120.AVI;Gato;Gloria;3;1;Basural_Gato 10;Negro Peludo;SP|Gato, Observador_gato|Gloria
+42;E06;E06;Gato;6216083;384746;;14/09/2021;08:06:15 p. m.;;;;;;09140121.AVI;Gato;Gloria;3;1;Basural_Gato 10;Negro Peludo;SP|Gato, Observador_gato|Gloria
+43;E06;E06;Gato;6216083;384746;;14/09/2021;08:13:57 p. m.;;;;;;09140123.AVI;Gato;Gloria;3;1;Basural_Gato 10;Negro Peludo;SP|Gato, Observador_gato|Gloria
+44;E06;E06;Gato;6216083;384746;;23/08/2021;03:45:46 p. m.;;;;;;08230043.JPG;Gato;Gloria;3;1;Basural_Gato 10;Tricolor;SP|Gato, Observador_gato|Gloria
+45;E06;E06;Gato;6216083;384746;;21/08/2021;06:29:47 p. m.;;;;;;08210025.JPG;Gato;Gloria;3;1;Basural_Gato 6;Negro;SP|Gato, Observador_gato|Gloria
+46;E06;E06;Gato;6216083;384746;;20/08/2021;02:49:04 p. m.;;;;;;08200016.JPG;Gato;Gloria;3;1;Basural_Gato 9;Gris;SP|Gato, Observador_gato|Gloria
+47;E06;E06;Gato;6216083;384746;;19/08/2021;07:52:21 p. m.;;;;;;08130010.JPG;Gato;Gloria;3;1;Basural_Gato 6;Negro;SP|Gato, Observador_gato|Gloria
+48;E13;E13;Gato;6216622;384283;;28/08/2021;12:13:07 a. m.;;;;;;08280135.JPG;Gato;Gloria;3;1;Circunvalacion_oeste_Gato2;Negro;SP|Gato, Observador_gato|Gloria
+49;E13;E13;Gato;6216622;384283;;23/08/2021;03:07:59 p. m.;;;;;;08230068.JPG;Gato;Gloria;3;1;Circunvalacion_oeste_Gato 1;Negro pelo corto;SP|Gato, Observador_gato|Gloria
+50;E21;E21;Gato;6217007;384180;;30/09/2021;09:36:08 p. m.;;;;;;09300152.AVI;Gato;Gloria;3;1;Arenal chico cantera_Gato 2;negro;SP|Gato, Observador_gato|Gloria
+51;E21;E21;Gato;6217007;384180;;25/09/2021;05:41:05 p. m.;;;;;;09250129.AVI;Gato;Gloria;3;1;Arenal chico cantera_Gato 2;negro;SP|Gato, Observador_gato|Gloria
+52;E21;E21;Gato;6217007;384180;;23/08/2021;09:22:27 p. m.;;;;;;08230013.JPG;Gato;Gloria;3;1;Arenal chico cantera_Gato 1;Amarillo cola cortada;SP|Gato, Observador_gato|Gloria
+53;E21;E21;Gato;6217007;384180;;06/09/2021;02:54:47 a. m.;;;;;;09060046.JPG;Gato;Gloria;3;1;Arenal chico cantera_Gato 2;negro;SP|Gato, Observador_gato|Gloria
+54;E25;E25;Gato;6217647;384510;;31/08/2021;11:22:01 p. m.;;;;;;IMAG0023.JPG;Gato;Gloria;3;1;Punta La Gata_;;SP|Gato, Observador_gato|Gloria
+55;E25;E25;Gato;6217647;384510;;26/09/2021;08:35:42 p. m.;;;;;;IMAG0150.JPG;Gato;Gloria;3;1;Punta La Gata_;;SP|Gato, Observador_gato|Gloria

@@ -1,0 +1,35 @@
+Station;utm_y;utm_x;eventos;etapa;zona;station_name;hours_active
+E01;6216066;384545;0;2021;media;Polvorin Prefectura;0
+E02;6216150;384938;1;2021;media;Casa de bombas;641
+E03;6216327;384865;0;2021;alta;Camping Solis;0
+E04;6216487;385286;0;2021;media;Intangible Sur;643
+E05;6216220;384664;0;2021;alta;Caballeriza b;0
+E06;6216083;384746;129;2021;media;Basural;1023
+E07;6216449;384330;0;2021;alta;Local Urbano;0
+E08;6216444;384620;0;2021;alta;Jardin Alcides;0
+E09;6216293;384288;0;2021;alta;CANE;0
+E10;6216611;384850;0;2021;media;Galpones;0
+E11;6216680;384632;0;2021;alta;Usina;0
+E12;6216631;384393;0;2021;alta;Club Brisas;0
+E13;6216622;384283;2;2021;media;Circunvlacion Oeste;1026
+E14;6216762;384384;0;2021;media;Canaveral Tata;0
+E15;6216787;384588;0;2021;media;Cementerio;0
+E16;6216853;384271;3;2021;media;Basural viejo entrada;1028
+E17;6217218;384600;0;2021;baja;Biologos Suroeste;0
+E18;6217150;384900;0;2021;baja;Arenal grande selva;0
+E19;6217161;384771;0;2021;baja;Arenal grande interior;0
+E20;6217114;384764;0;2021;baja;Arenal grande entrada;0
+E21;6217007;384180;4;2021;media;Arenal chico cantera;1019
+E22;6216991;384214;0;2021;media;Arenal chico interior;0
+E23;6217085;384230;0;2021;media;Barrio chino;0
+E24;6217140;384408;0;2021;baja;Selva Oeste;0
+E25;6217647;384510;2;2021;baja;Punta La Gata;808
+E26;6217417;384722;0;2021;baja;Polvorin viejo CB;0
+E27;6217568;384846;0;2021;baja;Camino prepista norte;0
+E28;6217559;385005;0;2021;media;Intangible Norte cantera;0
+E29;6217491;385037;0;2021;media;Intangible norte ultimo foco;0
+E30;6216919;384957;0;2021;media;Polvorin pista media;0
+E31;6217025;385133;0;2021;media;Intangible pista media;0
+E32;6216394;384921;0;2021;media;Bosque entre campings;0
+E33;6216342;384334;0;2021;alta;Fragata;0
+E34;6216318;384497;0;2021;alta;Museo;0

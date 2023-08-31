@@ -1,0 +1,12 @@
+Station;utm_y;utm_x;Setup_date;Retrieval_date;Problem1_from;Problem1_to;zona;station_number;hours_active;registros
+E13;6216622;384283;02/09/2019;07/09/2019;;;media;Circunvlacion Oeste;119.55;0
+E16;6216853;384271;19/08/2019;24/08/2019;;;media;Basural viejo entrada;115.50;0
+E17;6217218;384600;26/08/2019;31/08/2019;;;baja;Biologos Suroeste;119.76;0
+E18;6217131;384850;19/08/2019;24/08/2019;19/08/2019;19/08/2019;baja;Arenal grande selva b;119.87;0
+E19;6217161;384775;26/08/2019;31/08/2019;;;baja;Arenal grande interior b;119.76;0
+E24;6217144;384424;19/08/2019;24/08/2019;;;baja;Selva Oeste b;115.85;0
+E25;6217647;384510;02/09/2019;07/09/2019;;;baja;Punta La Gata;119.44;0
+E26;6217417;384722;19/08/2019;24/08/2019;;;baja;Polvorin viejo CB b;119.69;0
+E28;6217559;385028;19/08/2019;24/08/2019;;;media;Intangible Norte cantera b;119.52;0
+E29;6217491;385037;02/09/2019;07/09/2019;;;media;Intangible norte ultimo foco;119.59;0
+E31;6217025;385133;10/09/2019;15/09/2019;;;media;Intangible pista media;120.04;0
