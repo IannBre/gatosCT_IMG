@@ -8,9 +8,12 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+#Script de trabajo
+```{r limpiar global enviroment}
+rm(list = ls()) # OPTIONAL
+```
 
-
-#Empezemos con los paquetes
+#1.Empezemos con los paquetes
 ```{r control de versiones de paquetes}
 old.packages()
 ```
@@ -18,7 +21,7 @@ old.packages()
 ```{r paquetes que voy a necesitar}
 ## List of packages required:
 packages <- c("dplyr", "tidyr", "glmmTMB", "emmeans", "performance",
-              "MASS", "DHARMa", "arm", "ggplot2", "ggdist",
+               "DHARMa", "arm", "ggplot2", "ggdist",
               "lattice", "ggbeeswarm", "gridExtra", "mgcv", 
 "reshape2", "ggmosaic", "cdata", "car", "stringr","reshape",
  "parameters", "RColorBrewer","grDevices","geoR","tidyverse",
@@ -26,45 +29,559 @@ packages <- c("dplyr", "tidyr", "glmmTMB", "emmeans", "performance",
 "pscl","cowplot","patchwork","dplyr")
 
 ## Load or install & load all these:
-inst <- packages[1:35] %in% installed.packages()
+inst <- packages[1:34] %in% installed.packages()
 if(length(packages[!inst]) > 0) install.packages(packages[!inst])
 
 # Load packages into session
 lapply(packages, require, character.only = TRUE)
 
+#"MASS"
 ```
 
-#Script de trabajo
-```{r limpiar global enviroment}
-rm(list = ls()) # OPTIONAL
-```
-#Dataframe
+
+#2.Dataframe
 ```{r base de datos}
-## Cargado de tablas
+## Cargado de tablas 18-21 -----
 
-gatos_CT <- read.csv("E:/Análisis_R/IMG/data/eventosgatosB18-21.csv", 
+gatos_CT <- read.csv("E:/Análisis_R/IMG/data/eventosgatos18-21.csv", 
                      header=T,sep=";",
                      stringsAsFactors=FALSE)%>%
   mutate(etapa=factor(etapa)) %>%
   mutate(eventos=as.numeric(eventos)) %>% 
   mutate(zona=factor(zona)) %>% 
-  mutate(tasa=eventos/esfuerzo)
+  mutate(tasa=eventos/esfuerzo) %>% 
+  filter(zona!="alta")
 
+## Cargado de tablas 18-19 -----
 
+gatos_CT <- read.csv("E:/Análisis_R/IMG/data/eventosgatos18-19.csv", 
+                     header=T,sep=";",
+                     stringsAsFactors=FALSE)%>%
+  mutate(etapa=factor(etapa)) %>%
+  mutate(eventos=as.numeric(eventos)) %>% 
+  mutate(zona=factor(zona)) %>% 
+  mutate(tasa=eventos/esfuerzo) %>% 
+  filter(zona!="alta")
+```
+##2.1 Descriptiva de datos
+```{r descriptiva de datos}
 ##Controlar la estructura de los datos
 str(gatos_CT)
 summary(gatos_CT)
+
+
 ```
 
-#Definir las variables
+
+
+#3.Definir las variables
 ```{r definir las variables}
-#Variable respuesta ----
-var_resp <- "tasa"
-#Predictores fijos: variable predictora cuantitativa o categoricas ----
+#Variable respuesta
+var_resp <- "eventos"
+#Predictores fijos: variable predictora categoricas
 #Variable categorica
 var_fac1 <- "etapa"
 var_fac2 <- "zona"
-#Predictores aleatorios: dependen de la estructura de los datos ----
+#Offset
+var_offset <- "esfuerzo"
+```
+
+#4 Graficos crudos
+### Exploratorio
+```{r boxlpot cualitativas}
+#etapa
+box_etapa <- ggplot(gatos_CT, aes(x=etapa, y=tasa))+        
+  geom_boxplot()+ 
+  stat_summary(fun=mean, geom="point", shape=19, size=4,color="black")+
+  theme_bw()
 
 
+box_etapa <- box_etapa + geom_jitter(alpha=0.3, size=2,aes(color=etapa), position = position_jitter(width = .2))+theme(legend.position="top", legend.text=element_text(size = 14),legend.title = element_text(size=16, face="bold"))
+box_etapa
+
+#zona
+box_zona <- ggplot(gatos_CT, aes(x=zona, y=tasa))+        
+  geom_boxplot()+ 
+  stat_summary(fun=mean, geom="point", shape=19, size=4,color="black")+
+  theme_bw()
+
+
+box_zona <- box_zona + geom_jitter(alpha=0.3, size=2,aes(color=zona), position = position_jitter(width = .2))+theme(legend.position="top", legend.text=element_text(size = 14),legend.title = element_text(size=16, face="bold"))
+box_zona
+
+box_plot <- (box_zona + plot_spacer()) /  box_etapa
+box_plot
+```
+```{r abundancia de gatos por zona y etapa}
+gatos_CTmedia <- gatos_CT %>% 
+  filter(zona == "media") %>%
+  ggplot(aes(x = etapa, 
+             y = eventos/esfuerzo, 
+             col = station, 
+             group = station)) +
+  geom_point() +
+  geom_path() +
+  facet_grid(~zona+station) +
+  theme_bw() +
+  labs(y = "N° de eventos de gatos/Esfuerzo", x = "") +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90,
+                                   vjust = 0.5))
+gatos_CTmedia
+
+gatos_CTbaja <- gatos_CT %>% 
+  filter(zona == "baja") %>%
+  ggplot(aes(x = etapa, 
+             y = eventos/esfuerzo, 
+             col = station, 
+             group = station)) +
+  geom_point() +
+  geom_path() +
+  facet_grid(~zona+station) +
+  theme_bw() +
+  labs(y = "", x = "") +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 90,
+                                   vjust = 0.5))
+
+
+#plot sin estacion
+gatosplot <- gatos_CT %>% 
+  ggplot(aes(x = etapa, 
+             y = tasa, 
+             col = station, 
+             group = zona)) +
+  geom_point() +
+  geom_path(linewidth = 1) +
+  facet_grid(~zona) +
+  theme_bw() +
+  labs(y = "N° eventos de gatos/esfuerzo", x = "") +
+  theme(
+        axis.text.x = element_text(angle = 90,
+                                   vjust = 0.5))
+
+gatosplot
+
+gatosCT_plot <- ( gatosplot + gatos_CTbaja +  plot_spacer()) / gatos_CTmedia
+gatosCT_plot
+
+```
+### Histograma
+```{r histograma por zona}
+
+histo_gatos <-gatos_CT %>%
+  ggplot(aes(x=tasa))+
+  geom_histogram(binwidth = .005)+
+  labs(y = "", x = "eventos") +
+  theme_bw()
+
+histo_gatos
+
+#solo BAJA
+histo_baja <- gatos_CT %>%
+  filter(zona == "baja") %>%
+  ggplot(aes(x=eventos))+
+  geom_histogram(binwidth = .5)+
+  labs(y = "", x = "eventos zona baja") +
+  theme_bw()
+
+#solo MEDIA
+histo_media <-gatos_CT %>%
+  filter(zona == "media") %>%
+  ggplot(aes(x=eventos))+
+  geom_histogram(binwidth = .5)+
+  labs(y = "", x = "eventos zona media") +
+  theme_bw()
+
+
+histoCT_plot <- (histo_baja + plot_spacer()) /  histo_media
+histoCT_plot
+```
+```{r histograma por etapa}
+
+#2018
+histo_2018 <- gatos_CT %>%
+  filter(etapa == "2018") %>%
+  ggplot(aes(x=tasa))+
+  geom_histogram(binwidth = .001)+
+  labs(y = "", x = "eventos 2018") +
+  theme_bw()
+
+#2019
+histo_2019 <-gatos_CT %>%
+  filter(etapa == "2019") %>%
+  ggplot(aes(x=tasa))+
+  geom_histogram(binwidth = .001)+
+  labs(y = "", x = "eventos 2019") +
+  theme_bw()
+#2021
+histo_2021 <-gatos_CT %>%
+  filter(etapa == "2021") %>%
+  ggplot(aes(x=tasa))+
+  geom_histogram(binwidth = .001)+
+  labs(y = "", x = "eventos 2021") +
+  theme_bw()
+
+
+histoCT_plot <- (histo_2021 + plot_spacer()) / histo_2018 + histo_2019
+histoCT_plot
+```
+
+#4.1 Outliers --
+###4.1.1 boxplot cualitativas
+```{r Outliers graficos: histograma,boxplot,qqplot}
+par(mfrow=c(1,3))
+hist(gatos_CT$tasa, main = "histogram")
+boxplot(gatos_CT$tasa, main="boxplot")
+qqnorm(gatos_CT$tasa, main = "qqplot")
+```
+```{r Outliers valores: boxplot}
+par(mfrow=c(1,1))
+summary(gatos_CT$eventos) #valor minimo=0, maximo=43, media=2.4
+summary(gatos_CT$tasa)#valor minimo=0, maximo=0.17, media=0.013
+
+#valores que caen fuera
+boxplot.stats(gatos_CT$eventos) $out
+#en que filas estan
+out <- boxplot.stats(gatos_CT$tasa)$out
+out_ind <-which(gatos_CT$tasa %in% c(out))
+out_ind
+#corroborar los rownumbers
+gatos_CT[out_ind,] #en tasa el 43 esta bien y el 21 es el que mas se aleja
+
+#con los valores de outliers
+boxplot(gatos_CT$tasa, ylab = "tasa",
+        main = "Boxplot of cat events per year and zone")
+mtext(paste("Outliers: ", paste(out, collapse = ", ")))
+```
+```{r outliers valores: chicuadrado}
+library(outliers)
+outlier(gatos_CT$tasa, opposite = F,logical = F)
+chisq.out.test(gatos_CT$tasa) #0.17 es 21 gatos del 2018
+chisq.out.test(gatos_CT$eventos) #43 es 0.06 tasa de 2021
+```
+#4.2 Predictor de COLINEALIDAD
+##4.3.1: Inspeccion grafica de colinealidad
+### Predictor tipo FACTOR: 
+```{r correlacion entre VE y colinealidad}
+
+#Regresion Multiple: Para una o más de una Variable Explicatoria de tipo cualitativa - CORRELACION Y COLINEALIDAD 
+library (GGally)
+
+colnames(gatos_CT)
+gatos_CT %>% 
+  select(station,eventos,tasa,etapa,zona) 
+
+#cargo de acá porque no funciona el select
+gatos_CT_2 <- read.csv("E:/Análisis_R/IMG/data/eventosgatosD18-21.csv",  
+                      header=T,sep=";",stringsAsFactors=FALSE)%>%
+  mutate(etapa=factor(etapa)) %>%
+  mutate(eventos=as.numeric(eventos)) %>%
+  mutate(zona=factor(zona)) %>% 
+  mutate(tasa=eventos/esfuerzo) %>% 
+  filter(zona!="alta") %>% 
+  as.data.frame()
+
+
+ggpairs(gatos_CT_2,
+        cardinality_threshold = 25)
+
+```
+
+
+
+#5 Para Modelos 18-21--
+##5.1A Modelo 18-21 A ---
+```{r modelando}
+#modelo con interaccion: nbinom2_int----
+m_sat <- glmmTMB(eventos ~ etapa + zona + etapa:zona, family = nbinom2, 
+                     offset=log(esfuerzo), data= gatos_CT)
+```
+
+```{r comprobaciones de modelo supuestos}
+##Residuos-----
+simulationOutput <- simulateResiduals(fittedModel = m_sat, plot = F)
+
+plotQQunif(simulationOutput, #creates a qq-plot to detect overall deviations from the expected distribution, 
+           testDispersion = T, #test for dispersion
+           testUniformity = T, #test for correct distribution (KS test)
+           testOutliers = T)#test for outliers
+
+plotResiduals(simulationOutput) #produces a plot of the residuals against the predicted value
+
+# residual vs predictors, using explicit values for pred,residual
+plotResiduals(simulationOutput, form = gatos_CT$etapa) 
+ 
+hist(simulationOutput)#historgrama de los residuos
+
+##Dispersion --------
+#tres test
+testDispersion(simulationOutput) #dharma
+check_overdispersion(m_sat) #performance
+GL.resid <- df.residual(m_sat) #residuos con pearson
+(dispersion<-sum(resid(m_sat,type="pearson")^2/df.residual(m_sat)))
+
+## model zero inflation----
+check_zeroinflation(m_sat)
+
+## model distribution-----
+check_distribution(m_sat)
+
+## colinealidad y autocorrelacion----
+check_autocorrelation(m_sat)#independencia de residuos
+check_collinearity(m_sat) #Varinace Inflation Factors (VIFs)
+```
+##5.1B Modelo 18-21 B --
+```{r modelando}
+#modelo etapa mas zona----
+m_etapazona <- glmmTMB(eventos ~ etapa + zona, family = nbinom2 (link="log"), 
+                      offset=log(esfuerzo), data= gatos_CT )
+```
+```{r model comprobaciones}
+##Residuos-----
+simulationOutput <- simulateResiduals(fittedModel = m_etapazona, plot = F)
+
+plotQQunif(simulationOutput, #creates a qq-plot to detect overall deviations from the expected distribution, 
+           testDispersion = T, #test for dispersion
+           testUniformity = T, #test for correct distribution (KS test)
+           testOutliers = T) #test for outliers
+
+plotResiduals(simulationOutput) #produces a plot of the residuals against the predicted value
+
+# residual vs predictors, using explicit values for pred,residual
+plotResiduals(simulationOutput, form = gatos_CT$etapa) 
+ 
+hist(simulationOutput) #historgrama de los residuos
+
+##Dispersion --------
+#tres test
+testDispersion(simulationOutput) #dharma
+check_overdispersion(m_etapazona) #performance
+GL.resid <- df.residual(m_etapazona) #residuos con pearson
+(dispersion<-sum(resid(m_etapazona,type="pearson")^2/df.residual(m_etapazona)))
+##model zero inflation----
+check_zeroinflation(m_etapazona)
+## model distribution--------
+check_distribution(m_etapazona)
+## colinealidad y autocorrelacion------
+check_autocorrelation(m_etapazona) #independencia de residuos
+check_collinearity(m_etapazona) #Varinace Inflation Factors (VIFs)
+```
+##5.1C Modelo 18-21 C --
+```{r modelando}
+#modelo etapa mas zona zero inflado----
+m_etapazona_zero <- glmmTMB(eventos ~ etapa + zona,ziformula =~etapa+zona, family = nbinom2 (link="log"), 
+                      offset=log(esfuerzo), data= gatos_CT)
+```
+```{r model supuestos}
+##Residuos-----
+simulationOutput <- simulateResiduals(fittedModel = m_etapazona_zero, plot = F)
+
+plotQQunif(simulationOutput, #creates a qq-plot to detect overall deviations from the expected distribution, 
+           testDispersion = T, #test for dispersion
+           testUniformity = T, #test for correct distribution (KS test)
+           testOutliers = T) #test for outliers
+
+plotResiduals(simulationOutput) #produces a plot of the residuals against the predicted value
+
+# residual vs predictors, using explicit values for pred,residual
+plotResiduals(simulationOutput, form = gatos_CT$etapa) 
+ 
+#historgrama de los residuos
+hist(simulationOutput)
+
+##Dispersion --------
+#tres test
+testDispersion(simulationOutput) #dharma
+check_overdispersion(m_etapazona_zero) #performance
+GL.resid <- df.residual(m_etapazona_zero) #residuos con pearson
+(dispersion<-sum(resid(m_etapazona_zero,type="pearson")^2/df.residual(m_etapazona_zero)))
+
+## model zero inflation--------
+check_zeroinflation(m_etapazona_zero)
+
+##model distribution----------
+check_distribution(m_etapazona_zero)
+
+### colinealidad y autocorrelacion----------
+check_autocorrelation(m_etapazona)#independencia de residuos
+check_collinearity(m_etapazona)#Varinace Inflation Factors (VIFs)
+```
+
+
+#5.2 Modelos 18-19--
+##5.2A Modelo 18-19 A ---
+```{r modelando}
+#modelo con interaccion: nbinom2_int----
+m_sat <- glmmTMB(eventos ~ etapa + zona + etapa:zona, family = nbinom2, 
+                     offset=log(esfuerzo), data= gatos_CT)
+```
+
+```{r comprobaciones de modelo supuestos}
+##Residuos-----
+simulationOutput <- simulateResiduals(fittedModel = m_sat, plot = F)
+
+plotQQunif(simulationOutput, #creates a qq-plot to detect overall deviations from the expected distribution, 
+           testDispersion = T, #test for dispersion
+           testUniformity = T, #test for correct distribution (KS test)
+           testOutliers = T)#test for outliers
+
+plotResiduals(simulationOutput) #produces a plot of the residuals against the predicted value
+
+# residual vs predictors, using explicit values for pred,residual
+plotResiduals(simulationOutput, form = gatos_CT$etapa) 
+ 
+hist(simulationOutput)#historgrama de los residuos
+
+##Dispersion --------
+#tres test
+testDispersion(simulationOutput) #dharma
+check_overdispersion(m_sat) #performance
+GL.resid <- df.residual(m_sat) #residuos con pearson
+(dispersion<-sum(resid(m_sat,type="pearson")^2/df.residual(m_sat)))
+
+## model zero inflation----
+check_zeroinflation(m_sat)
+
+## model distribution-----
+check_distribution(m_sat)
+
+## colinealidad y autocorrelacion----
+check_autocorrelation(m_sat)#independencia de residuos
+check_collinearity(m_sat) #Varinace Inflation Factors (VIFs)
+```
+##5.2B Modelo 18-19 B --
+```{r modelando}
+#modelo etapa mas zona----
+m_etapazona <- glmmTMB(eventos ~ etapa + zona, family = nbinom2 (link="log"), 
+                      offset=log(esfuerzo), data= gatos_CT )
+```
+```{r model comprobaciones}
+##Residuos-----
+simulationOutput <- simulateResiduals(fittedModel = m_etapazona, plot = F)
+
+plotQQunif(simulationOutput, #creates a qq-plot to detect overall deviations from the expected distribution, 
+           testDispersion = T, #test for dispersion
+           testUniformity = T, #test for correct distribution (KS test)
+           testOutliers = T) #test for outliers
+
+plotResiduals(simulationOutput) #produces a plot of the residuals against the predicted value
+
+# residual vs predictors, using explicit values for pred,residual
+plotResiduals(simulationOutput, form = gatos_CT$etapa) 
+ 
+hist(simulationOutput) #historgrama de los residuos
+
+##Dispersion --------
+#tres test
+testDispersion(simulationOutput) #dharma
+check_overdispersion(m_etapazona) #performance
+GL.resid <- df.residual(m_etapazona) #residuos con pearson
+(dispersion<-sum(resid(m_etapazona,type="pearson")^2/df.residual(m_etapazona)))
+##model zero inflation----
+check_zeroinflation(m_etapazona)
+##model distribution------
+check_distribution(m_etapazona)
+##colinealidad y autocorrelacion----
+check_autocorrelation(m_etapazona) #independencia de residuos
+check_collinearity(m_etapazona) #Varinace Inflation Factors (VIFs)
+```
+
+
+
+#6 Modelando con glm 18-19 --
+```{r modelando}
+#modelo etapa*zona ----
+m_sat2 <- glm(eventos ~ etapa*zona + offset(log(esfuerzo)),
+                  family = "poisson", data= gatos_CT)
+
+check_overdispersion(m_sat2)
+
+#modelo sobredispersion ----
+#'[Binomial negativa'] 
+#paquete MASS
+m_sat3 <- glm.nb(eventos ~ etapa*zona +  offset(log(esfuerzo)),
+                         data= gatos_CT)
+#paquete glmmTMB
+m_sat4 <- glmmTMB(eventos ~ etapa*zona + offset(log(esfuerzo)),
+                    family="nbinom2",data= gatos_CT)
+                         
+```
+
+
+```{r Likelihood Ratio Test}
+#LRT tells us if it is beneficial to add parameters to our model, or if we should stick with our simpler model. Si p es significativo, uso modelo. 
+
+m_sat4 %>% 
+  update(.~. -etapa:zona) %>% 
+  anova(m_sat4, test = "Chisq") # Quito la interacción y aumenta sig- la devianza. 
+m_sat4 %>% 
+  update(.~. -etapa:zona - zona) %>% # Quito la zona y aumenta la devianza sig.
+  anova(m_sat4, test = "Chisq")
+m_sat4 %>% 
+  update(.~. -etapa:zona - etapa) %>% # Quito la etapa y aumenta la devianza sig.
+  anova(m_sat4, test = "Chisq")
+```
+```{r corroboro con modelos y AIC}
+# Hago modelos y test de AIC para estar seguro
+m_sat4 <- glmmTMB(eventos ~ etapa*zona + offset(log(esfuerzo)),
+                    family="nbinom2",data= gatos_CT)
+m_gatos_ez <- glmmTMB(eventos ~ etapa+zona + offset(log(esfuerzo)),
+                    family="nbinom2",data= gatos_CT)
+m_gatos_zona <- glmmTMB(eventos ~ zona + offset(log(esfuerzo)),
+                    family="nbinom2",data= gatos_CT)
+m_gatos_etapa <- glmmTMB(eventos ~ etapa + offset(log(esfuerzo)),
+                    family="nbinom2",data= gatos_CT)
+
+# Comparacion de modelos con AIC
+AIC(m_sat4,m_gatos_ez,m_gatos_zona,m_gatos_etapa)
+
+```
+
+```{r mejor modelo: chequeo  de supuestos}
+#copio el mejor modelo
+m_sat4 <- glmmTMB(eventos ~ etapa*zona + offset(log(esfuerzo)),
+                    family="nbinom2",data= gatos_CT)
+
+summary(m_sat4)
+
+##Residuos-----
+simulationOutput <- simulateResiduals(fittedModel = m_sat4, 
+                                      plot = F)
+
+plotQQunif(simulationOutput, #creates a qq-plot to detect overall deviations from the expected distribution, 
+           testDispersion = T, #test for dispersion
+           testUniformity = T, #test for correct distribution (KS test)
+           testOutliers = T) #test for outliers
+
+plotResiduals(simulationOutput) #produces a plot of the residuals against the predicted value
+
+# residual vs predictors, using explicit values for pred,residual
+plotResiduals(simulationOutput, form = gatos_CT$etapa) 
+ 
+#historgrama de los residuos
+hist(simulationOutput)
+
+##Dispersion --------
+#tres test
+testDispersion(simulationOutput) #dharma
+check_overdispersion(m_sat4) #performance
+GL.resid <- df.residual(m_sat4) #residuos con pearson
+(dispersion<-sum(resid(m_sat4,type="pearson")^2/df.residual(m_sat2)))
+
+## model zero inflation--------
+check_zeroinflation(m_sat4)
+
+##model distribution----------
+check_distribution(m_sat4)
+
+### colinealidad y autocorrelacion----------
+check_autocorrelation(m_sat4)#independencia de residuos
+check_collinearity(m_sat4)#Varinace Inflation Factors (VIFs)
+```
+```{r mejor modelo: check model y predichos}
+check_model(m_sat4)
+summary(m_sat4)
+
+#Predichos ----
 ```

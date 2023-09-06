@@ -1,103 +1,77 @@
 eventos;zona;esfuerzo;station;etapa;station_name;utm_y;utm_x
 3;media;116.33;E01;2018;Polvorin Prefectura;6216066;384545
 4;media;119.57;E01;2019;Polvorin Prefectura;6216066;384545
-0;media;0;E01;2021;Polvorin Prefectura;6216066;384545
 1;media;112.7;E02;2018;Casa de bombas;6216150;384938
 1;media;118.70;E02;2019;Casa de bombas;6216150;384938
-1;media;641;E02;2021;Casa de bombas;6216150;384938
+1;media;639;E02;2021;Casa de bombas;6216150;384938
 42;alta;116.53;E03;2018;Camping Solis;6216327;384865
 26;alta;119.58;E03;2019;Camping Solis;6216327;384865
-0;alta;0;E03;2021;Camping Solis;6216327;384865
 4;media;112.14;E04;2018;Intangible Sur;6216487;385286
 0;media;118.89;E04;2019;Intangible Sur;6216487;385286
-0;media;643;E04;2021;Intangible Sur;6216487;385286
+0;media;629;E04;2021;Intangible Sur;6216487;385286
 3;alta;111.53;E05;2018;Caballeriza;6216213;384673
-11;alta;118.49;E05;2019;Caballeriza b;6216220;384664
-0;alta;0;E05;2021;Caballeriza b;6216220;384664
+11;alta;118.49;E05;2019;Caballeriza;6216220;384664
 3;media;115.11;E06;2018;Basural ;6216083;384746
 3;media;119.52;E06;2019;Basural;6216083;384746
-43;media;1023;E06;2021;Basural;6216083;384746
+43;media;657;E06;2021;Basural;6216083;384746
 2;alta;108.86;E07;2018;Local Urbano;6216449;384330
 18;alta;119.25;E07;2019;Local Urbano;6216449;384330
-0;alta;0;E07;2021;Local Urbano;6216449;384330
 11;alta;118.38;E08;2018;Jardin Alcides;6216444;384620
 7;alta;119.56;E08;2019;Jardin Alcides;6216444;384620
-0;alta;0;E08;2021;Jardin Alcides;6216444;384620
 2;alta;113.51;E09;2018;CANE;6216306;384276
 9;alta;115.26;E09;2019;CANE;6216293;384288
-0;alta;0;E09;2021;CANE;6216293;384288
 2;media;119.02;E10;2018;Galpones;6216611;384850
 0;media;119.67;E10;2019;Galpones;6216611;384850
-0;media;0;E10;2021;Galpones;6216611;384850
 9;alta;118.54;E11;2018;Usina;6216680;384632
 12;alta;121.4;E11;2019;Usina;6216680;384632
-0;alta;0;E11;2021;Usina;6216680;384632
 29;alta;115.98;E12;2018;Club Brisas;6216631;384393
 19;alta;119.35;E12;2019;Club Brisas;6216631;384393
-0;alta;0;E12;2021;Club Brisas;6216631;384393
 0;media;118.36;E13;2018;Circunvlacion Oeste ;6216622;384283
 1;media;119.55;E13;2019;Circunvlacion Oeste;6216622;384283
-2;media;1026;E13;2021;Circunvlacion Oeste;6216622;384283
+2;media;652;E13;2021;Circunvlacion Oeste;6216622;384283
 21;media;118.51;E14;2018;Canaveral Tata;6216762;384384
 1;media;119.39;E14;2019;Canaveral Tata;6216762;384384
-0;media;0;E14;2021;Canaveral Tata;6216762;384384
 3;media;120.26;E15;2018;Cementerio ;6216787;384588
 2;media;119.76;E15;2019;Cementerio;6216787;384588
-0;media;0;E15;2021;Cementerio;6216787;384588
 0;media;115.67;E16;2018;Basural viejo entrada;6216853;384271
 0;media;115.50;E16;2019;Basural viejo entrada;6216853;384271
-3;media;1028;E16;2021;Basural viejo entrada;6216853;384271
+3;media;661;E16;2021;Basural viejo entrada;6216853;384271
 0;baja;117.74;E17;2018;Biologos Suroeste ;6217218;384600
 0;baja;119.76;E17;2019;Biologos Suroeste;6217218;384600
-0;baja;0;E17;2021;Biologos Suroeste;6217218;384600
 0;baja;118.38;E18;2018;Arenal grande selva;6217150;384900
 0;baja;119.87;E18;2019;Arenal grande selva;6217150;384900
-0;baja;0;E18;2021;Arenal grande selva;6217150;384900
 0;baja;114.84;E19;2018;Arenal grande interior;6217161;384771
 3;baja;119.76;E19;2019;Arenal grande interior;6217161;384771
-0;baja;0;E19;2021;Arenal grande interior;6217161;384771
 1;baja;119.56;E20;2018;Arenal grande entrada;6217114;384764
 8;baja;119.1;E20;2019;Arenal grande entrada;6217114;384764
-0;baja;0;E20;2021;Arenal grande entrada;6217114;384764
 1;media;115.99;E21;2018;Arenal chico cantera;6217007;384180
 0;media;115.72;E21;2019;Arenal chico cantera;6217007;384180
-4;media;1019;E21;2021;Arenal chico cantera;6217007;384180
+4;media;661;E21;2021;Arenal chico cantera;6217007;384180
 1;media;112.97;E22;2018;Arenal chico interior;6216991;384214
 2;media;119.41;E22;2019;Arenal chico interior;6216991;384214
-0;media;0;E22;2021;Arenal chico interior;6216991;384214
 3;media;112.24;E23;2018;Barrio chino;6217085;384230
 1;media;119.63;E23;2019;Barrio chino;6217085;384230
-0;media;0;E23;2021;Barrio chino;6217085;384230
 0;baja;116.4;E24;2018;Selva Oeste;6217140;384408
 0;baja;115.85;E24;2019;Selva Oeste;6217140;384408
-0;baja;0;E24;2021;Selva Oeste;6217140;384408
 0;baja;119.33;E25;2018;Punta La Gata;6217647;384510
 0;baja;119.44;E25;2019;Punta La Gata;6217647;384510
-2;baja;808;E25;2021;Punta La Gata;6217647;384510
+2;baja;440;E25;2021;Punta La Gata;6217647;384510
 0;baja;117.09;E26;2018;Polvorin viejo CB;6217417;384722
 0;baja;119.69;E26;2019;Polvorin viejo CB;6217417;384722
-0;baja;0;E26;2021;Polvorin viejo CB;6217417;384722
 2;baja;117.36;E27;2018;Camino prepista norte;6217568;384846
 3;baja;119.66;E27;2019;Camino prepista norte;6217568;384846
-0;baja;629;E27;2021;Camino prepista norte;6217568;384846
+0;baja;643;E27;2021;Camino prepista norte;6217568;384846
 0;media;117.64;E28;2018;Intangible Norte cantera;6217559;385005
 1;media;119.52;E28;2019;Intangible Norte cantera;6217559;385005
-0;media;0;E28;2021;Intangible Norte cantera;6217559;385005
 0;media;119.14;E29;2018;Intangible norte ultimo foco;6217491;385037
 0;media;119.59;E29;2019;Intangible norte ultimo foco;6217491;385037
-0;media;0;E29;2021;Intangible norte ultimo foco;6217491;385037
 1;media;116.82;E30;2018;Polvorin pista media;6216919;384957
 2;media;119.54;E30;2019;Polvorin pista media;6216919;384957
-0;media;0;E30;2021;Polvorin pista media;6216919;384957
 0;media;119.88;E31;2018;Intangible pista media;6217025;385133
 2;media;120.04;E31;2019;Intangible pista media;6217025;385133
-0;media;0;E31;2021;Intangible pista media;6217025;385133
 3;media;119.14;E32;2018;Bosque entre campings;6216394;384921
 1;media;120.07;E32;2019;Bosque entre campings;6216394;384921
-0;media;0;E32;2021;Bosque entre campings;6216394;384921
 128;alta;117.98;E33;2018;Fragata;6216342;384334
 659;alta;119.41;E33;2019;Fragata;6216342;384334
-0;alta;0;E33;2021;Fragata;6216342;384334
 72;alta;118.78;E34;2018;Museo;6216318;384497
 208;alta;119.81;E34;2019;Museo;6216318;384497
-0;alta;0;E34;2021;Museo;6216318;384497
